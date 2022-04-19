@@ -28,21 +28,25 @@
         </div>
         <label class="font-weight">2/2</label>
       </div>
-      <div id="imageListId" class="d-flex flex-direction-row">
+      <div
+        id="imageListId"
+        class="d-flex flex-direction-row"
+        *ngFor="let data of data"
+      >
         <div class="listitemClass cards-mid-shift" id="imageNo1">
           <div class="pl-15 d-inline-block w-50">
-            <label>11:00PM <br />7:00 AM</label>
+            <label>{{ data.time1 }} <br />{{ data.time2 }}</label>
           </div>
-          <label class="positions">BM</label>
+          <label class="positions">{{ data.position }}</label>
           <i class="bi bi-arrows-move"></i>
         </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo2">
+        <!-- <div class="listitemClass cards-mid-shift" id="imageNo2">
           <div class="pl-15 d-inline-block w-50">
             <label>11:00PM <br />7:00 AM</label>
           </div>
           <label class="positions">ZT</label>
           <i class="bi bi-arrows-move"></i>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="mb-3 d-flex flex-direction-row">
