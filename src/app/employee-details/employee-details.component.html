@@ -10,75 +10,84 @@
   <div class="mid-shift">
     <label class="labels-heading"
       >MID SHIFT<i class="bi bi-moon-fill"></i>
-      <div class="center-values"><span>4/4</span></div></label
-    >
-    <div class="mb-3 d-flex flex-direction-row">
-      <div class="cards-mid-shift mr-5">
-        <div
-          class="
-            text-center
-            bg-color-blue
-            d-inline-block
-            w-50
-            h-50px
-            text-label
-          "
-        >
-          <label>11 <br />PM</label>
+      <div class="center-values"><span>4/4</span></div>
+    </label>
+    <div class="d-flex flex-direction-row">
+      <div class="mb-3 d-flex" style="flex-direction: column;">
+        <div class="cards-mid-shift mr-5 mb-2">
+          <div
+            class="
+              text-center
+              bg-color-blue
+              d-inline-block
+              w-50
+              h-50px
+              text-label
+            "
+          >
+            <label>11 <br />PM</label>
+          </div>
+          <label class="font-weight">2/2</label>
         </div>
-        <label class="font-weight">2/2</label>
+
+        <div class="cards-mid-shift mr-5 mb-2">
+          <div
+            class="
+              text-center
+              bg-color-blue
+              d-inline-block
+              w-50
+              h-50px
+              text-label
+            "
+          >
+            <label>12 <br />AM</label>
+          </div>
+          <label class="font-weight">2/2</label>
+        </div>
       </div>
       <div
-        id="imageListId"
-        class="d-flex flex-direction-row"
-        *ngFor="let data of data"
+        class="mb-3 d-flex flex-direction-column"
+        style="flex-direction: column;"
+        cdkDropListGroup
       >
-        <div class="listitemClass cards-mid-shift" id="imageNo1">
-          <div class="pl-15 d-inline-block w-50">
-            <label>{{ data.time1 }} <br />{{ data.time2 }}</label>
-          </div>
-          <label class="positions">{{ data.position }}</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <!-- <div class="listitemClass cards-mid-shift" id="imageNo2">
-          <div class="pl-15 d-inline-block w-50">
-            <label>11:00PM <br />7:00 AM</label>
-          </div>
-          <label class="positions">ZT</label>
-          <i class="bi bi-arrows-move"></i>
-        </div> -->
-      </div>
-    </div>
-    <div class="mb-3 d-flex flex-direction-row">
-      <div class="cards-mid-shift mr-5">
         <div
-          class="
-            text-center
-            bg-color-blue
-            d-inline-block
-            w-50
-            h-50px
-            text-label
-          "
+          class="d-flex flex-direction-row"
+          cdkDropList
+          [cdkDropListData]="midShiftData"
+          (cdkDropListDropped)="drop($event)"
         >
-          <label>12 <br />AM</label>
-        </div>
-        <label class="font-weight">2/2</label>
-      </div>
-      <div id="imageListId1" class="d-flex flex-direction-row">
-        <div class="listitemClass cards-mid-shift" id="imageNo3">
-          <div class="pl-15 d-inline-block w-50">
-            <label>12:00AM <br />8:00 AM</label>
+          <div
+            cdkDrag
+            class="listitemClass cards-mid-shift mb-2"
+            id="imageNo1"
+            *ngFor="let data of midShiftData"
+          >
+            <div class="pl-15 d-inline-block w-50">
+              <label>{{ data.time }} <br />{{ data.time1 }}</label>
+            </div>
+            <label class="positions">{{ data.name }}</label>
+            <i class="bi bi-arrows-move"></i>
           </div>
-          <label class="positions">SI</label>
-          <i class="bi bi-arrows-move"></i>
         </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo4">
-          <div class="pl-15 d-inline-block w-50">
-            <label>12:00AM <br />8:00 AM</label>
+        <div
+          class="d-flex flex-direction-row"
+          cdkDropList
+          [cdkDropListData]="midShiftData1"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div
+            cdkDrag
+            class="listitemClass cards-mid-shift mb-2"
+            id="imageNo3"
+            *ngFor="let data of midShiftData1"
+          >
+            <div class="pl-15 d-inline-block w-50">
+              <label>{{ data.time }} <br />{{ data.time1 }}</label>
+            </div>
+            <label class="positions">{{ data.name }}</label>
+            <i class="bi bi-arrows-move"></i>
           </div>
-          <label class="positions">ZY</label>
-          <i class="bi bi-arrows-move"></i>
         </div>
       </div>
     </div>
@@ -87,374 +96,346 @@
   <div class="day-shift">
     <label class="labels-heading"
       >DAY SHIFT <i class="bi bi-sun-fill"></i>
-      <div class="center-values"><span>12/12</span></div></label
-    >
-
+      <div class="center-values"><span>12/12</span></div>
+    </label>
     <div class="mb-3 d-flex flex-direction-row">
-      <div class="cards-mid-shift mr-5">
-        <div
-          class="
-            text-center
-            bg-color-blue
-            d-inline-block
-            w-50
-            h-50px
-            text-label
-          "
-        >
-          <label>6 <br />AM</label>
-        </div>
-        <label class="font-weight">4/4</label>
-      </div>
-      <div id="imageListId2" class="d-flex flex-direction-row">
-        <div class="listitemClass cards-mid-shift" id="imageNo1">
-          <div class="pl-15 d-inline-block w-50">
-            <label>6:00AM <br />2:00 PM</label>
+      <div class="mb-3 d-flex" style="flex-direction: column;">
+        <div class="cards-mid-shift mr-5 mb-2">
+          <div
+            class="
+              text-center
+              bg-color-blue
+              d-inline-block
+              w-50
+              h-50px
+              text-label
+            "
+          >
+            <label>6 <br />AM</label>
           </div>
-          <label class="positions">OA</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo2">
-          <div class="pl-15 d-inline-block w-50">
-            <label>6:00AM <br />2:00 PM</label>
-          </div>
-          <label class="positions">MG</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo3">
-          <div class="pl-15 d-inline-block w-50">
-            <label>6:00AM <br />2:00 PM</label>
-          </div>
-          <label class="positions">TV</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo4">
-          <div class="pl-15 d-inline-block w-50">
-            <label>6:00AM <br />2:00 PM</label>
-          </div>
-          <label class="positions">RM</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-      </div>
-    </div>
-    <div class="mb-3 d-flex flex-direction-row">
-      <div class="cards-mid-shift mr-5">
-        <div
-          class="
-            text-center
-            bg-color-blue
-            d-inline-block
-            w-50
-            h-50px
-            text-label
-          "
-        >
-          <label>7 <br />AM</label>
-        </div>
-        <label class="font-weight">7/7</label>
-      </div>
-      <div id="imageListId3" class="d-flex flex-direction-row">
-        <div class="listitemClass cards-mid-shift" id="imageNo1">
-          <div class="pl-15 d-inline-block w-50">
-            <label>7:00AM <br />3:00 AM</label>
-          </div>
-          <label class="positions">RG</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo2">
-          <div class="pl-15 d-inline-block w-50">
-            <label>7:00AM <br />3:00 AM</label>
-          </div>
-          <label class="positions">Z0</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo3">
-          <div class="pl-15 d-inline-block w-50">
-            <label>7:00AM <br />3:00 AM</label>
-          </div>
-          <label class="positions">HY</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo4">
-          <div class="pl-15 d-inline-block w-50">
-            <label>7:00AM <br />3:00 AM</label>
-          </div>
-          <label class="positions">XT</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo5">
-          <div class="pl-15 d-inline-block w-50">
-            <label>7:00AM <br />3:00 AM</label>
-          </div>
-          <label class="positions">YP</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo6">
-          <div class="pl-15 d-inline-block w-50">
-            <label>7:00AM <br />3:00 AM</label>
-          </div>
-          <label class="positions">TY</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo7">
-          <div class="pl-15 d-inline-block w-50">
-            <label>7:00AM <br />3:00 AM</label>
-          </div>
-          <label class="positions">ZC</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-      </div>
-    </div>
-    <div class="mb-3 d-flex flex-direction-row">
-      <div class="cards-mid-shift mr-5">
-        <div
-          class="
-            text-center
-            bg-color-blue
-            d-inline-block
-            w-50
-            h-50px
-            text-label
-          "
-        >
-          <label>8 <br />AM</label>
-        </div>
-        <label class="font-weight">1/1</label>
-      </div>
-      <div id="imageListId4" class="d-flex flex-direction-row">
-        <div class="listitemClass cards-mid-shift" id="imageNo3">
-          <div class="pl-15 d-inline-block w-50">
-            <label>8:00AM <br />4:00 AM</label>
-          </div>
-          <label class="positions">JE</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="eve-shift">
-    <label class="labels-heading"
-      >EVE SHIFT <i class="bi bi-sunset-fill"></i>
-      <div class="center-values"><span>10/10</span></div></label
-    >
-    <div class="mb-3 d-flex flex-direction-row">
-      <div class="cards-mid-shift mr-5">
-        <div
-          class="
-            text-center
-            bg-color-blue
-            d-inline-block
-            w-50
-            h-50px
-            text-label
-          "
-        >
-          <label>1 <br />AM</label>
-        </div>
-        <label class="font-weight">3/3</label>
-      </div>
-      <div id="imageListId5" class="d-flex flex-direction-row">
-        <div class="listitemClass cards-mid-shift" id="imageNo1">
-          <div class="pl-15 d-inline-block w-50">
-            <label>1:00AM <br />8:00 AM</label>
-          </div>
-          <label class="positions">AB</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo2">
-          <div class="pl-15 d-inline-block w-50">
-            <label>12:00AM <br />8:00 AM</label>
-          </div>
-          <label class="positions">WA</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo3">
-          <div class="pl-15 d-inline-block w-50">
-            <label>12:00AM <br />8:00 AM</label>
-          </div>
-          <label class="positions">BO</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-      </div>
-    </div>
-    <div class="mb-3 d-flex flex-direction-row">
-      <div class="cards-mid-shift mr-5">
-        <div
-          class="
-            text-center
-            bg-color-blue
-            d-inline-block
-            w-50
-            h-50px
-            text-label
-          "
-        >
-          <label>2 <br />AM</label>
-        </div>
-        <label class="font-weight">1/1</label>
-      </div>
-      <div id="imageListId1" class="d-flex flex-direction-row">
-        <div class="listitemClass cards-mid-shift" id="imageNo3">
-          <div class="pl-15 d-inline-block w-50">
-            <label>1:00AM <br />8:00 AM</label>
-          </div>
-          <label class="positions">CS</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-      </div>
-    </div>
-    <div class="mb-3 d-flex flex-direction-row">
-      <div class="cards-mid-shift mr-5">
-        <div
-          class="
-            text-center
-            bg-color-blue
-            d-inline-block
-            w-50
-            h-50px
-            text-label
-          "
-        >
-          <label>5 <br />AM</label>
-        </div>
-        <label class="font-weight">5/5</label>
-      </div>
-      <div id="imageListId6" class="d-flex flex-direction-row">
-        <div class="listitemClass cards-mid-shift" id="imageNo1">
-          <div class="pl-15 d-inline-block w-50">
-            <label>1:00AM <br />8:00 AM</label>
-          </div>
-          <label class="positions">LI</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo2">
-          <div class="pl-15 d-inline-block w-50">
-            <label>1:00AM <br />8:00 AM</label>
-          </div>
-          <label class="positions">FK</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo3">
-          <div class="pl-15 d-inline-block w-50">
-            <label>1:00AM <br />8:00 AM</label>
-          </div>
-          <label class="positions">KM</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo4">
-          <div class="pl-15 d-inline-block w-50">
-            <label>1:00AM <br />8:00 AM</label>
-          </div>
-          <label class="positions">TX</label>
-          <i class="bi bi-arrows-move"></i>
+          <label class="font-weight">4/4</label>
         </div>
 
-        <div class="listitemClass cards-mid-shift" id="imageNo5">
-          <div class="pl-15 d-inline-block w-50">
-            <label>1:00AM <br />8:00 AM</label>
+        <div class="cards-mid-shift mr-5 mb-2">
+          <div
+            class="
+              text-center
+              bg-color-blue
+              d-inline-block
+              w-50
+              h-50px
+              text-label
+            "
+          >
+            <label>7 <br />AM</label>
           </div>
-          <label class="positions">GJ</label>
-          <i class="bi bi-arrows-move"></i>
+          <label class="font-weight">7/7</label>
+        </div>
+        <div class="cards-mid-shift mr-5 mb-2">
+          <div
+            class="
+              text-center
+              bg-color-blue
+              d-inline-block
+              w-50
+              h-50px
+              text-label
+            "
+          >
+            <label>8 <br />AM</label>
+          </div>
+          <label class="font-weight">1/1</label>
         </div>
       </div>
-    </div>
-    <div class="mb-3 d-flex flex-direction-row">
-      <div class="cards-mid-shift mr-5">
+      <div
+        class="mb-3 d-flex flex-direction-column"
+        style="flex-direction: column;"
+        cdkDropListGroup
+      >
         <div
-          class="
-            text-center
-            bg-color-blue
-            d-inline-block
-            w-50
-            h-50px
-            text-label
-          "
+          class="d-flex flex-direction-row"
+          cdkDropList
+          [cdkDropListData]="dayShiftData"
+          (cdkDropListDropped)="drop($event)"
         >
-          <label>4 <br />AM</label>
-        </div>
-        <label class="font-weight">1/1</label>
-      </div>
-      <div id="imageListId1" class="d-flex flex-direction-row">
-        <div class="listitemClass cards-mid-shift" id="imageNo3">
-          <div class="pl-15 d-inline-block w-50">
-            <label class="width-50">4:00AM <br />12:00 AM</label>
+          <div
+            cdkDrag
+            class="listitemClass cards-mid-shift mb-2"
+            id="imageNo1"
+            *ngFor="let data of dayShiftData"
+          >
+            <div class="pl-15 d-inline-block w-50">
+              <label>{{ data.time }} <br />{{ data.time1 }}</label>
+            </div>
+            <label class="positions">{{ data.name }}</label>
+            <i class="bi bi-arrows-move"></i>
           </div>
-          <label class="positions">OR</label>
-          <i class="bi bi-arrows-move"></i>
+        </div>
+        <div
+          class="d-flex flex-direction-row"
+          cdkDropList
+          [cdkDropListData]="dayShiftData1"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div
+            cdkDrag
+            class="listitemClass cards-mid-shift mb-2"
+            id="imageNo3"
+            *ngFor="let data of dayShiftData1"
+          >
+            <div class="pl-15 d-inline-block w-50">
+              <label>{{ data.time }} <br />{{ data.time1 }}</label>
+            </div>
+            <label class="positions">{{ data.name }}</label>
+            <i class="bi bi-arrows-move"></i>
+          </div>
+        </div>
+        <div
+          class="d-flex flex-direction-row"
+          cdkDropList
+          [cdkDropListData]="dayShiftData2"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <div
+            cdkDrag
+            class="listitemClass cards-mid-shift mb-2"
+            id="imageNo3"
+            *ngFor="let data of dayShiftData2"
+          >
+            <div class="pl-15 d-inline-block w-50">
+              <label>{{ data.time }} <br />{{ data.time1 }}</label>
+            </div>
+            <label class="positions">{{ data.name }}</label>
+            <i class="bi bi-arrows-move"></i>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="day-off">
-    <label class="labels-heading"
-      ><i>Staff on RDO</i>
-      <div class="center-values"><span>10</span></div></label
-    >
 
-    <div class="mb-3 d-flex flex-direction-row">
-      <div id="imageListId1" class="d-flex flex-direction-row">
-        <div class="listitemClass cards-mid-shift" id="imageNo3">
-          <div class="pl-15 d-inline-block w-50">
-            <label>RDO</label>
+    <div class="eve-shift">
+      <label class="labels-heading"
+        >EVE SHIFT <i class="bi bi-sunset-fill"></i>
+        <div class="center-values"><span>10/10</span></div>
+      </label>
+      <div class="mb-3 d-flex flex-direction-row">
+        <div class="mb-3 d-flex" style="flex-direction: column;">
+          <div class="cards-mid-shift mr-5 mb-2">
+            <div
+              class="
+                text-center
+                bg-color-blue
+                d-inline-block
+                w-50
+                h-50px
+                text-label
+              "
+            >
+              <label>1 <br />AM</label>
+            </div>
+            <label class="font-weight">3/3</label>
           </div>
-          <label class="positions">OG</label>
-          <i class="bi bi-arrows-move"></i>
+
+          <div class="cards-mid-shift mr-5 mb-2">
+            <div
+              class="
+                text-center
+                bg-color-blue
+                d-inline-block
+                w-50
+                h-50px
+                text-label
+              "
+            >
+              <label>2 <br />AM</label>
+            </div>
+            <label class="font-weight">1/1</label>
+          </div>
+          <div class="cards-mid-shift mr-5 mb-2">
+            <div
+              class="
+                text-center
+                bg-color-blue
+                d-inline-block
+                w-50
+                h-50px
+                text-label
+              "
+            >
+              <label>5 <br />AM</label>
+            </div>
+            <label class="font-weight">5/5</label>
+          </div>
+          <div class="cards-mid-shift mr-5 mb-2">
+            <div
+              class="
+                text-center
+                bg-color-blue
+                d-inline-block
+                w-50
+                h-50px
+                text-label
+              "
+            >
+              <label>4 <br />AM</label>
+            </div>
+            <label class="font-weight">1/1</label>
+          </div>
         </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo3">
-          <div class="pl-15 d-inline-block w-50">
-            <label>RDO</label>
+        <div
+          class="mb-3 d-flex flex-direction-column"
+          style="flex-direction: column;"
+          cdkDropListGroup
+        >
+          <div
+            class="d-flex flex-direction-row"
+            cdkDropList
+            [cdkDropListData]="EvngShiftData"
+            (cdkDropListDropped)="drop($event)"
+          >
+            <div
+              cdkDrag
+              class="listitemClass cards-mid-shift mb-2"
+              id="imageNo1"
+              *ngFor="let data of EvngShiftData3"
+            >
+              <div class="pl-15 d-inline-block w-50">
+                <label>{{ data.time }} <br />{{ data.time1 }}</label>
+              </div>
+              <label class="positions">{{ data.name }}</label>
+              <i class="bi bi-arrows-move"></i>
+            </div>
           </div>
-          <label class="positions">GD</label>
-          <i class="bi bi-arrows-move"></i>
+          <div
+            class="d-flex flex-direction-row"
+            cdkDropList
+            [cdkDropListData]="EvngShiftData1"
+            (cdkDropListDropped)="drop($event)"
+          >
+            <div
+              cdkDrag
+              class="listitemClass cards-mid-shift mb-2"
+              id="imageNo3"
+              *ngFor="let data of EvngShiftData1"
+            >
+              <div class="pl-15 d-inline-block w-50">
+                <label>{{ data.time }} <br />{{ data.time1 }}</label>
+              </div>
+              <label class="positions">{{ data.name }}</label>
+              <i class="bi bi-arrows-move"></i>
+            </div>
+          </div>
+          <div
+            class="d-flex flex-direction-row"
+            cdkDropList
+            [cdkDropListData]="EvngShiftData2"
+            (cdkDropListDropped)="drop($event)"
+          >
+            <div
+              cdkDrag
+              class="listitemClass cards-mid-shift mb-2"
+              id="imageNo3"
+              *ngFor="let data of EvngShiftData2"
+            >
+              <div class="pl-15 d-inline-block w-50">
+                <label>{{ data.time }} <br />{{ data.time1 }}</label>
+              </div>
+              <label class="positions">{{ data.name }}</label>
+              <i class="bi bi-arrows-move"></i>
+            </div>
+          </div>
+          <div
+            class="d-flex flex-direction-row"
+            cdkDropList
+            [cdkDropListData]="EvngShiftData3"
+            (cdkDropListDropped)="drop($event)"
+          >
+            <div
+              cdkDrag
+              class="listitemClass cards-mid-shift mb-2"
+              id="imageNo3"
+              *ngFor="let data of EvngShiftData3"
+            >
+              <div class="pl-15 d-inline-block w-50">
+                <label>{{ data.time }} <br />{{ data.time1 }}</label>
+              </div>
+              <label class="positions">{{ data.name }}</label>
+              <i class="bi bi-arrows-move"></i>
+            </div>
+          </div>
         </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo3">
-          <div class="pl-15 d-inline-block w-50">
-            <label>RDO</label>
+      </div>
+    </div>
+    <div class="day-off">
+      <label class="labels-heading"
+        ><i>Staff on RDO</i>
+        <div class="center-values"><span>10</span></div>
+      </label>
+
+      <div class="mb-3 d-flex flex-direction-row">
+        <div id="imageListId1" class="d-flex flex-direction-row">
+          <div class="listitemClass cards-mid-shift mb-2" id="imageNo3">
+            <div class="pl-15 d-inline-block w-50">
+              <label>RDO</label>
+            </div>
+            <label class="positions">OG</label>
+            <i class="bi bi-arrows-move"></i>
           </div>
-          <label class="positions">RV</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo3">
-          <div class="pl-15 d-inline-block w-50">
-            <label>RDO</label>
+          <div class="listitemClass cards-mid-shift mb-2" id="imageNo3">
+            <div class="pl-15 d-inline-block w-50">
+              <label>RDO</label>
+            </div>
+            <label class="positions">GD</label>
+            <i class="bi bi-arrows-move"></i>
           </div>
-          <label class="positions">NI</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo3">
-          <div class="pl-15 d-inline-block w-50">
-            <label>RDO</label>
+          <div class="listitemClass cards-mid-shift mb-2" id="imageNo3">
+            <div class="pl-15 d-inline-block w-50">
+              <label>RDO</label>
+            </div>
+            <label class="positions">RV</label>
+            <i class="bi bi-arrows-move"></i>
           </div>
-          <label class="positions">KG</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo3">
-          <div class="pl-15 d-inline-block w-50">
-            <label>RDO</label>
+          <div class="listitemClass cards-mid-shift mb-2" id="imageNo3">
+            <div class="pl-15 d-inline-block w-50">
+              <label>RDO</label>
+            </div>
+            <label class="positions">NI</label>
+            <i class="bi bi-arrows-move"></i>
           </div>
-          <label class="positions">DE</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo3">
-          <div class="pl-15 d-inline-block w-50">
-            <label>RDO</label>
+          <div class="listitemClass cards-mid-shift mb-2" id="imageNo3">
+            <div class="pl-15 d-inline-block w-50">
+              <label>RDO</label>
+            </div>
+            <label class="positions">KG</label>
+            <i class="bi bi-arrows-move"></i>
           </div>
-          <label class="positions">BP</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo3">
-          <div class="pl-15 d-inline-block w-50">
-            <label>RDO</label>
+          <div class="listitemClass cards-mid-shift mb-2" id="imageNo3">
+            <div class="pl-15 d-inline-block w-50">
+              <label>RDO</label>
+            </div>
+            <label class="positions">DE</label>
+            <i class="bi bi-arrows-move"></i>
           </div>
-          <label class="positions">YJ</label>
-          <i class="bi bi-arrows-move"></i>
-        </div>
-        <div class="listitemClass cards-mid-shift" id="imageNo3">
-          <div class="pl-15 d-inline-block w-50">
-            <label>RDO</label>
+          <div class="listitemClass cards-mid-shift mb-2" id="imageNo3">
+            <div class="pl-15 d-inline-block w-50">
+              <label>RDO</label>
+            </div>
+            <label class="positions">BP</label>
+            <i class="bi bi-arrows-move"></i>
           </div>
-          <label class="positions">TK</label>
-          <i class="bi bi-arrows-move"></i>
+          <div class="listitemClass cards-mid-shift mb-2" id="imageNo3">
+            <div class="pl-15 d-inline-block w-50">
+              <label>RDO</label>
+            </div>
+            <label class="positions">YJ</label>
+            <i class="bi bi-arrows-move"></i>
+          </div>
+          <div class="listitemClass cards-mid-shift mb-2" id="imageNo3">
+            <div class="pl-15 d-inline-block w-50">
+              <label>RDO</label>
+            </div>
+            <label class="positions">TK</label>
+            <i class="bi bi-arrows-move"></i>
+          </div>
         </div>
       </div>
     </div>
